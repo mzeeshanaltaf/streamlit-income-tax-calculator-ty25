@@ -18,7 +18,7 @@ it_ty_25 = tax_calculation_ty25(annual_salary)
 it_ty_24 = tax_calculation_ty24(annual_salary)
 
 it_24_percent = (it_ty_24/annual_salary) * 100
-it_25_percent = (it_ty_26/annual_salary) * 100
+it_25_percent = (it_ty_25/annual_salary) * 100
 
 net = format_number((it_ty_25 - it_ty_24))
 if net == 0:
