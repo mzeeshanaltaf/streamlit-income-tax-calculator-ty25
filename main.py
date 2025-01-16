@@ -17,6 +17,9 @@ annual_salary = monthly_salary * 12
 it_ty_25 = tax_calculation_ty25(annual_salary)
 it_ty_24 = tax_calculation_ty24(annual_salary)
 
+it_24_percent = (it_ty_24/annual_salary) * 100
+it_25_percent = (it_ty_26/annual_salary) * 100
+
 net = format_number((it_ty_25 - it_ty_24))
 if net == 0:
     perc_change = 0
@@ -24,8 +27,8 @@ else:
     perc_change = round((net/it_ty_24) * 100, 2)
 
 col1, col2, col3 = st.columns(3)
-col1.metric("Annual Tax TY24", f"{it_ty_24:,}")
-col2.metric("Annual Tax TY25", f"{it_ty_25:,}")
+col1.metric("Annual Tax TY24", f"{it_ty_24:,}", delta=f"{it_24_percent:.2f}")
+col2.metric("Annual Tax TY25", f"{it_ty_25:,}", delta=f"{it_25_percent:.2f}")
 col3.metric(":blue[Net Annual Change]", f"{net:,}", delta=f"{perc_change}%", delta_color='inverse')
 
 st.subheader('Contact')
